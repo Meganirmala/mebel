@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\Admin\CategoryController;
+use App\Http\Controllers\Admin\FrontendController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -27,7 +29,6 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 // });
 
 Route::middleware(['auth', 'isAdmin'])->group(function () {
-    Route::get('/dashboard', function(){
-        return view('admin.index');
-    });
+    Route::get('/dashboard', [FrontendController::class, 'index'])->name('index');
+    Route::resource('category', CategoryController::class);
 });
