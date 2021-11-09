@@ -3,7 +3,7 @@
 @section('content')
     <div class="card">
         <div class="card-body">
-            <h1>Mega Nirmala</h1>
+            <h1>Dashboard Index</h1>
         </div>
     </div>
 @endsection

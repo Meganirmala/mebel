@@ -27,6 +27,12 @@
             <p>Category</p>
           </a>
         </li>
+        <li class="nav-item ">
+          <a class="nav-link" href="{{ route('product.index') }}">
+            <i class="material-icons">content_paste</i>
+            <p>Product</p>
+          </a>
+        </li>
       </ul>
     </div>
   </div>
