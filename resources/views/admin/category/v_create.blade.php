@@ -21,11 +21,12 @@
                 <div class="col-md-12">
                   <div class="form-group">
                     <label class="bmd-label-floating">Category Description</label>
-                   <textarea class="form-control" rows="5" name="category_description" id="category_description"></textarea>
+                   <textarea class="form-control" rows="3" name="category_description" id="category_description"></textarea>
                   </div>
                 </div>
               </div>
               <button type="submit" class="btn btn-primary pull-right">Add</button>
+              <a class="btn btn-danger pull-left" href="{{ route('category.index') }}">Cancel</a>
               <div class="clearfix"></div>
             </form>
           </div>

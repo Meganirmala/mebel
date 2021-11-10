@@ -15,6 +15,7 @@
     <!-- Styles -->
     {{-- <link href="{{ asset('css/app.css') }}" rel="stylesheet"> --}}
     <link href="{{ asset('admin/css/material-dashboard.css') }}" rel="stylesheet">
+    <link href="{{ asset('admin/css/custom.css') }}" rel="stylesheet">
 </head>
 <body class="dark-edition">
   <div class="wrapper ">
@@ -39,6 +40,7 @@
     <script src="{{ asset('admin/js/popper.min.js') }}" defer></script>
     <script src="{{ asset('admin/js/bootstrap-material-design.min.js') }}" defer></script>
     <script src="{{ asset('admin/js/perfect-scrollbar.jquery.min.js') }}" defer></script>
+    <script src="{{ asset('admin/js/responsive.js') }}" defer></script>
 
     <!--   Core JS Files   -->
     <script src="https://unpkg.com/default-passive-events"></script>

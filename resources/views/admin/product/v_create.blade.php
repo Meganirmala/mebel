@@ -9,7 +9,7 @@
             <h4 class="card-title">Add Product</h4>
           </div>
           <div class="card-body">
-            <form action="#" method="POST" enctype="multipart/form-data">
+            <form action="{{ route('product.store') }}" method="POST" enctype="multipart/form-data">
                 @csrf
               <div class="row">
                 <div class="col-md-12">
@@ -21,17 +21,12 @@
                 <div class="col-md-12">
                   <div class="form-group">
                     <label class="bmd-label-floating">Product Category</label>
-                    <select name="" id="" class="form-control">
+                    <select name="category_id" id="" class="form-control">
                       <option value="">Select Category</option>
-                      <option value="">tes</option>
-                      <option value="">tes</option>
+                      @foreach ($category as $obj)
+                      <option {{old('category_id', $obj->category_id) == $obj->id ? 'selected':''}} value="{{$obj->id}}">{{ $obj->category_name }}</option>
+                      @endforeach
                     </select>
-                  </div>
-                </div>
-                <div class="col-md-12">
-                  <div class="form-group">
-                    <label class="bmd-label-floating">Product Description</label>
-                   <textarea class="form-control" rows="5" name="product_description" id="product_description"></textarea>
                   </div>
                 </div>
                 <div class="col-md-12">
@@ -42,12 +37,17 @@
                 </div>
                 <div class="col-md-12">
                   <div class="form-group">
-                    <label class="bmd-label-floating">Image</label>
-                    <input type="file" name="image" class="form-control">
+                    <label class="bmd-label-floating">Product Description</label>
+                   <textarea class="form-control" rows="3" name="product_description" id="product_description"></textarea>
                   </div>
                 </div>
+                <div class="col-md-12">
+                    <label class="bmd-label-floating">Image</label>
+                    <input type="file" name="image" class="form-control">
+                </div>
               </div>
-              <button type="submit" class="btn btn-primary pull-right">Add</button>
+              <button type="submit" class="btn btn-success pull-right">Add</button>
+              <a class="btn btn-danger pull-left" href="{{ route('product.index') }}">Cancel</a>
               <div class="clearfix"></div>
             </form>
           </div>

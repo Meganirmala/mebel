@@ -28,6 +28,7 @@
                 </div>
               </div>
               <button type="submit" class="btn btn-primary pull-right">Update</button>
+              <a class="btn btn-danger pull-left" href="{{ route('category.index') }}">Cancel</a>
               <div class="clearfix"></div>
             </form>
           </div>
