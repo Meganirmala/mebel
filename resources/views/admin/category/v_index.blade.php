@@ -36,7 +36,7 @@
                                       <a class="btn btn-mini btn-primary" href="{{ route('category.edit', $data->id) }}">Edit</a>
                                       @csrf
                                       @method('DELETE')
-                                      <button type="submit" class="btn btn-mini btn-danger">Delete</button>
+                                      <button type="submit" class="btn btn-mini btn-danger btn-flat show_confirm" data-toggle="tooltip" title='Delete'>Delete</button>
                                   </form>
                               </td>
                           </tr>

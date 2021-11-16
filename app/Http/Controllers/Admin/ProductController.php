@@ -155,6 +155,28 @@ class ProductController extends Controller
     public function destroy($id)
     {
         //
+        // $product = Product::find($id);
+        // $product->delete();
+        // return redirect()->route('product.index')
+        // ->with('success','Product succefully deleted');
+        $product = Product::find($id);
+        if($product->foto){
+            $file_path = public_path('img/'.$product->foto); 
+         }
+         if ($product){
+            if (file_exists($file_path)) {
+                if  (unlink($file_path)){
+                    $product->delete();
+                    return redirect()->route('product.index')
+                    ->with('success','Product succefully deleted');
+                }
+                else {
+                    return redirect()->route('product.index')
+                    ->with('error','Product gagal dihapus');
+                } 
+             }
+        }
         
     }
+   
 }

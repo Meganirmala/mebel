@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\FrontendController;
 use App\Http\Controllers\Admin\ProductController;
@@ -23,14 +24,14 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-// Route::group(['middleware' => ['auth','isAdmin']], function(){
-//     Route::get('/dashboard', function(){
-//         return view('admin.dashboard');
-//     });
-// });
+
 
 Route::middleware(['auth', 'isAdmin'])->group(function () {
     Route::get('/dashboard', [FrontendController::class, 'index'])->name('index');
     Route::resource('category', CategoryController::class);
     Route::resource('product', ProductController::class);
+    Route::resource('account', AdminController::class);
+    Route::get('/showUser/{id}', [AdminController::class, 'showUser'])->name('showUser');
+    // Route::get('/destroy2/{id}', [ProductController::class, 'destroy2'])->name('destroy2');
+    
 });
