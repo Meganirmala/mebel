@@ -35,7 +35,7 @@
                 </div>
               </div>
               <a class="btn btn-default pull-right" href="{{ route('index') }}">Back</a>
-              <a class="btn btn-danger pull-left" href="#">Edit</a>
+              <a class="btn btn-danger pull-left" href="{{ route('editUser', Auth::id()) }}">Edit</a>
               <div class="clearfix"></div>
             </form>
           </div>

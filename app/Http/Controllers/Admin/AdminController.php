@@ -5,7 +5,9 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\User;
-
+use Hash;
+use Illuminate\Support\Arr;
+use Illuminate\Support\Facades\Auth;
 
 class AdminController extends Controller
 {
@@ -68,6 +70,12 @@ class AdminController extends Controller
         //
     }
 
+    public function editUser($id)
+    {
+        $user = User::find($id);
+        return view('admin.account.v_editUser',compact('user'));
+    }
+
     /**
      * Update the specified resource in storage.
      *
@@ -78,6 +86,28 @@ class AdminController extends Controller
     public function update(Request $request, $id)
     {
         //
+    }
+
+    public function updateUser(Request $request, $id)
+    {
+        $this->validate($request, [
+            'name' => 'required',
+            'email' => 'required|email|unique:users,email,'.$id,
+            'password' => 'same:confirm-password',
+        ]);
+    
+        $input = $request->all();
+        if(!empty($input['password'])){ 
+            $input['password'] = Hash::make($input['password']);
+        }else{
+            $input = Arr::except($input,array('password'));    
+        }
+    
+        $user = User::find($id);
+        $user->update($input);
+    
+        return redirect()->route('showUser', Auth::id())
+                        ->with('success','User berhasil diubah');
     }
 
     /**

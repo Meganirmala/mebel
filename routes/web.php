@@ -18,7 +18,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('login');
 });
 
 Auth::routes();
@@ -32,6 +32,8 @@ Route::middleware(['auth', 'isAdmin'])->group(function () {
     Route::resource('product', ProductController::class);
     Route::resource('account', AdminController::class);
     Route::get('/showUser/{id}', [AdminController::class, 'showUser'])->name('showUser');
+    Route::get('/editUser/{id}', [AdminController::class, 'editUser'])->name('editUser');
+    Route::put('/updateUser/{id}', [AdminController::class, 'updateUser'])->name('updateUser');
     // Route::get('/destroy2/{id}', [ProductController::class, 'destroy2'])->name('destroy2');
     
 });
