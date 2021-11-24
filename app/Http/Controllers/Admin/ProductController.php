@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Category;
 use App\Models\Product;
 use Illuminate\Http\Request;
+use Image;
 
 class ProductController extends Controller
 {
@@ -157,10 +158,7 @@ class ProductController extends Controller
     public function destroy($id)
     {
         //
-        // $product = Product::find($id);
-        // $product->delete();
-        // return redirect()->route('product.index')
-        // ->with('success','Product succefully deleted');
+        
         $product = Product::find($id);
         if($product->foto){
             $file_path = public_path('img/'.$product->foto); 

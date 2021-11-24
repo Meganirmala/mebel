@@ -4,6 +4,7 @@ use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\FrontendController;
 use App\Http\Controllers\Admin\ProductController;
+use App\Http\Controllers\LandingPage\LandingController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -17,13 +18,22 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
+// Route::get('/', function () {
+//     return view('landingpage.v_landingPage');
+// });
+Route::get('/', [LandingController::class, 'landing'])->name('landing');
+Route::get('/detail/{id}', [LandingController::class, 'detail'])->name('detail');
+
+
+Route::get('/signin', function () {
     return view('login');
 });
+// Route::resource('landing', LandingController::class);
+
 
 Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+// Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 
 Route::middleware(['auth', 'isAdmin'])->group(function () {
@@ -34,6 +44,5 @@ Route::middleware(['auth', 'isAdmin'])->group(function () {
     Route::get('/showUser/{id}', [AdminController::class, 'showUser'])->name('showUser');
     Route::get('/editUser/{id}', [AdminController::class, 'editUser'])->name('editUser');
     Route::put('/updateUser/{id}', [AdminController::class, 'updateUser'])->name('updateUser');
-    // Route::get('/destroy2/{id}', [ProductController::class, 'destroy2'])->name('destroy2');
     
 });
