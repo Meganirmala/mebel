@@ -6,8 +6,10 @@
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
   <title>E-Mebel</title>
-  <meta content="" name="description">
-  <meta content="" name="keywords">
+  <meta  name="description" content="tes konten">
+  <meta  name="keywords" content="tes konten">
+  <meta  name="author" content="tes konten">
+  <meta  name="robots" content="tes konten">
 
   <!-- Favicons -->
   <link href="{{ asset('frontend/assets/img/favicon.png') }}" rel="icon">
@@ -46,8 +48,8 @@
   <!-- ======= Hero Section ======= -->
   <section id="hero" class="d-flex flex-column justify-content-center align-items-center">
     <div class="container text-center text-md-left" data-aos="fade-up">
-      <h1>Welcome to Mebel Ukir Cukli</h1>
-      <h2>We are team of talented designers making websites with Bootstrap</h2>
+      <h1>Welcome to Ria Art</h1>
+      <h2>Kami adalah perusahaan kerajinan mebl ukir cukli dan souvenir khas Lombok</h2>
     </div>
   </section><!-- End Hero -->
 
@@ -81,15 +83,29 @@
         </div>
 
         <div class="row portfolio-container" data-aos="fade-up">
-          @foreach ($product as $data)
+          @foreach ($kerajinan as $data_kerajinan)
           <div class="col-lg-4 col-md-6 portfolio-item filter-kerajinan">
             <div class="portfolio-wrap">
-              <img src="{{ asset('img/'. $data->foto) }}" class="img-fluid" alt="" style="height: 267px; width: 100%; object-fit: cover;">
+              <img src="{{ asset('img/'. $data_kerajinan->foto) }}" class="img-fluid" alt="" style="height: 267px; width: 100%; object-fit: cover;">
               <div class="portfolio-info">
-                <h4>{{ $data->product_name }}</h4>
+                <h4>{{ $data_kerajinan->product_name }}</h4>
                 <p>App</p>
                 <div class="portfolio-links">
-                  <a href="{{ route('detail', $data->id) }}" title="More Details"><i class="bx bx-link"></i></a>
+                  <a href="{{ route('detail', $data_kerajinan->id) }}" title="More Details"><i class="bx bx-link"></i></a>
+                </div>
+              </div>
+            </div>
+          </div>
+          @endforeach
+          @foreach ($sovenir as $data_sovenir)
+          <div class="col-lg-4 col-md-6 portfolio-item filter-sovenir">
+            <div class="portfolio-wrap">
+              <img src="{{ asset('img/'. $data_sovenir->foto) }}" class="img-fluid" alt="" style="height: 267px; width: 100%; object-fit: cover;">
+              <div class="portfolio-info">
+                <h4>{{ $data_sovenir->product_name }}</h4>
+                <p>App</p>
+                <div class="portfolio-links">
+                  <a href="{{ route('detail', $data_sovenir->id) }}" title="More Details"><i class="bx bx-link"></i></a>
                 </div>
               </div>
             </div>
@@ -111,7 +127,8 @@
     @include('landingpage.footer')
   <!-- End Footer -->
 
-  <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+  {{-- <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a> --}}
+  <a href="https://api.whatsapp.com/send?phone=6281238426547&text=Hallo%20saya%20tertarik%20dengan%20produk%20yang%20ditawarkan" target="blank_" class="back-to-top d-flex align-items-center justify-content-center"><img src="{{ asset('frontend/assets/img/icon_wa1.png') }}" alt="" width="50px"></a>
 
   <!-- Vendor JS Files -->
   <script src="{{ asset('frontend/assets/vendor/aos/aos.js') }}"></script>
@@ -123,21 +140,21 @@
 
   <!-- Template Main JS File -->
   <script src="{{ asset('frontend/assets/js/main.js') }}"></script>
-  <script> 
-  $(document).ready(function () {
-  $("#portfolio-flters").on("click", function (e) {
-    //debugger
-    //var ref_this = $("ul.tabs li a.active");
+  {{-- <script> 
+      $(document).ready(function () {
+      $("#portfolio-flters").on("click", function (e) {
+        //debugger
+        //var ref_this = $("ul.tabs li a.active");
 
-    var target = $(e.target).attr("data-filter");
-    if (target != null)
-         alert(target);
-    else
-         alert('There is no active element');
+        var target = $(e.target).attr("data-filter");
+        if (target != null)
+            alert(target);
+        else
+            alert('There is no active element');
 
-    });
-   });
-   </script>
+        });
+      });
+  </script> --}}
 
 </body>
 

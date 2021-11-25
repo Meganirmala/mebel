@@ -22,9 +22,10 @@ class LandingController extends Controller
     public function landing()
     {
         //
-        $product = Product::with('category')->get();
+        $kerajinan = Product::with('category')->where('category_id', 1)->get();
+        $sovenir = Product::with('category')->where('category_id', 6)->get();
         $categories = Category::get();
-        return view('landingpage.v_landingPage', compact('product','categories'));
+        return view('landingpage.v_landingPage', compact('kerajinan','sovenir','categories'));
 
     }
 

@@ -2,8 +2,10 @@
 
 use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\Admin\CategoryController;
+use App\Http\Controllers\Admin\CeoController;
 use App\Http\Controllers\Admin\FrontendController;
 use App\Http\Controllers\Admin\ProductController;
+use App\Http\Controllers\Admin\SeoController;
 use App\Http\Controllers\LandingPage\LandingController;
 use Illuminate\Support\Facades\Route;
 
@@ -44,5 +46,9 @@ Route::middleware(['auth', 'isAdmin'])->group(function () {
     Route::get('/showUser/{id}', [AdminController::class, 'showUser'])->name('showUser');
     Route::get('/editUser/{id}', [AdminController::class, 'editUser'])->name('editUser');
     Route::put('/updateUser/{id}', [AdminController::class, 'updateUser'])->name('updateUser');
+    Route::get('/seo', [SeoController::class, 'seo'])->name('seo');
+    Route::post('/seo_store', [SeoController::class, 'seo_store'])->name('seo_store');
+
+
     
 });

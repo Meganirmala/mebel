@@ -3,7 +3,7 @@
 
       <div class="section-title" data-aos="fade-up">
         <h2>Contact</h2>
-        <p>Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea. Quia fugiat sit in iste officiis commodi quidem hic quas.</p>
+        <p>Untuk pemesanan lebih lanjut dapat melalui kontak dibawah atau kunjungi toko kami secara langsung</p>
       </div>
 
       <div class="row no-gutters justify-content-center" data-aos="fade-up">
@@ -19,13 +19,13 @@
             <div class="email mt-4">
               <i class="bi bi-envelope"></i>
               <h4>Email:</h4>
-              <p>edisiswana@gmail.com</p>
+              <p>Riaartshop@gmail.com</p>
             </div>
 
             <div class="phone mt-4">
               <i class="bi bi-instagram"></i>
               <h4>Instagram:</h4>
-              <p>ria_artshop</p>
+              <p>riaartshop</p>
             </div>
 
           </div>

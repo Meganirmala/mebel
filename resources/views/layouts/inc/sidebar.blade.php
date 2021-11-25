@@ -27,6 +27,12 @@
             <p>Product</p>
           </a>
         </li>
+        <li class="nav-item {{ Request::is('seo') ? 'active':'' }} ">
+          <a class="nav-link" href="{{ route('seo') }}">
+            <i class="material-icons">search</i>
+            <p>SEO</p>
+          </a>
+        </li>
       </ul>
     </div>
   </div>
