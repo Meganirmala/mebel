@@ -2,7 +2,8 @@
     <div class="container d-flex justify-content-between">
 
       <div class="logo">
-        <h1><a href="index.html">Maxim</a></h1>
+        {{-- <h1><a href="index.html">RIART</a></h1> --}}
+        <img src="{{ asset('frontend/assets/img/logo_ria.png') }}" alt="">
         <!-- Uncomment below if you prefer to use an image logo -->
         <!-- <a href="index.html"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>-->
       </div>

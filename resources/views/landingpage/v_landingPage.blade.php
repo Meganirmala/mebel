@@ -6,10 +6,13 @@
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
   <title>E-Mebel</title>
-  <meta  name="description" content="tes konten">
-  <meta  name="keywords" content="tes konten">
-  <meta  name="author" content="tes konten">
-  <meta  name="robots" content="tes konten">
+  @foreach ($seo as $data )
+  <meta  name="description" content="{{ $data->description }}">
+  <meta  name="keywords" content="{{ $data->keywords }}">
+  <meta  name="author" content="{{ $data->author }}">
+  <meta  name="robots" content="{{ Request::is($data->robot_index == 1) ? 'index':'no index' }}, {{Request::is($data->robot_index == 1) ? 'follow':'no follow' }}">
+  @endforeach
+  
 
   <!-- Favicons -->
   <link href="{{ asset('frontend/assets/img/favicon.png') }}" rel="icon">
@@ -60,7 +63,7 @@
    <!-- End About Section -->
       
     <!-- ======= Testimonials Section ======= -->
-      @include('landingpage.testimoni')
+      {{-- @include('landingpage.testimoni') --}}
     <!-- End Testimonials Section -->
 
     <!-- ======= Portfolio Section ======= -->

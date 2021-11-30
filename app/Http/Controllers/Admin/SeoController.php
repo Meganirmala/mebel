@@ -12,6 +12,15 @@ class SeoController extends Controller
     public function seo(){
 
         $seo = Seo::first();
+        // if(empty($seo)){
+        //     $seo->description = '';
+        //     $seo->keywords = '';
+        //     $seo->author ='';
+        //     $seo->robot_follow = 1;
+        //     $seo->robot_index = 1;
+        // return view('landingpage.seo', compact('seo'));
+
+        // }
         return view('landingpage.seo', compact('seo'));
     }
 

@@ -29,7 +29,7 @@ Route::get('/detail/{id}', [LandingController::class, 'detail'])->name('detail')
 
 Route::get('/signin', function () {
     return view('login');
-});
+})->name('signin');
 // Route::resource('landing', LandingController::class);
 
 

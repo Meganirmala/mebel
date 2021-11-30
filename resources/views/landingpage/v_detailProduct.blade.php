@@ -26,6 +26,7 @@
 
   <!-- Template Main CSS File -->
   <link href="{{ asset('frontend/assets/css/style.css') }}" rel="stylesheet">
+  <link href="{{ asset('frontend/assets/css/custom.css') }}" rel="stylesheet">
 
   <!-- =======================================================
   * Template Name: Maxim - v4.6.0
@@ -83,7 +84,8 @@
             </div>
             <div class="portfolio-description">
               <h2>Product Description</h2>
-              <p>{{ $product->product_description }}</p>
+              <p style="text-align: justify">{{ $product->product_description }}</p>
+                <a href="https://api.whatsapp.com/send?phone=6281238426547&text=Hallo%20saya%20tertarik%20dengan%20produk%20yang%20ditawarkan" target="blank_"><img src="{{ asset('frontend/assets/img/pesan sekarang.png') }}" alt="" width="250px"></a>
             </div>
           </div>
 
@@ -98,7 +100,8 @@
   @include('landingpage.footer')
   <!-- End Footer -->
 
-  <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+  {{-- <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a> --}}
+  {{-- <a href="https://api.whatsapp.com/send?phone=6281238426547&text=Hallo%20saya%20tertarik%20dengan%20produk%20yang%20ditawarkan" target="blank_" class="back-to-top d-flex align-items-center justify-content-center"><img src="{{ asset('frontend/assets/img/icon_wa1.png') }}" alt="" width="50px"></a> --}}
 
   <!-- Vendor JS Files -->
   <script src="{{ asset('frontend/assets/vendor/aos/aos.js') }}"></script>

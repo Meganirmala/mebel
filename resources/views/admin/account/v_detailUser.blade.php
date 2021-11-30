@@ -21,14 +21,6 @@
               <div class="row">
                 <div class="col-md-12">
                   <div class="form-group">
-                    <label class="bmd-label-floating">Username</label>
-                    <label class="form-control"></label>
-                  </div>
-                </div>
-              </div>
-              <div class="row">
-                <div class="col-md-12">
-                  <div class="form-group">
                     <label class="bmd-label-floating">Email</label>
                     <label class="form-control">{{ $user->email }}</label>
                   </div>

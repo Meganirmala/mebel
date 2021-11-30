@@ -15,55 +15,41 @@
                 <div class="col-md-12">
                     <div class="form-group">
                       <label class="bmd-label-floating">Description</label>
-                     <textarea class="form-control" name="description" id="description">{{ $seo->description }}</textarea>
+                     <textarea class="form-control" name="description" id="description">{{ $seo ? $seo->description:'' }}</textarea>
                     </div>
                   </div>
                   <div class="col-md-12">
                     <div class="form-group">
                       <label class="bmd-label-floating">Keywords/Kata Kunci</label>
-                     <textarea class="form-control" name="keywords" id="keywords">{{ $seo->keywords }}</textarea>
+                     <textarea class="form-control" name="keywords" id="keywords">{{ $seo ? $seo->keywords: '' }}</textarea>
                     </div>
                   </div>
                   <div class="col-md-12">
                     <div class="form-group">
                       <label class="bmd-label-floating">Author</label>
-                     <textarea class="form-control" name="author" id="author">{{ $seo->author }}</textarea>
+                     <textarea class="form-control" name="author" id="author">{{ $seo ? $seo->author: '' }}</textarea>
                     </div>
                   </div>
                   <div class="col-md-12">
                     <label class="bmd-label-floating">Robots Index</label>
                     <div class="form-group">
                         <div class="form-check form-check-radio">
-                            <label class="form-check-label">
-                              @if($seo->robot_index == 1)
-                                <input  class="form-check-input" type="radio" name="robot_index" id="exampleRadios1" value="1" checked>
+                          <div class="ml-3">
+                            <label class="form-check-label row mb-2">
+                                <input  class="form-check-input" type="radio" name="robot_index" id="exampleRadios1" value="1" {{ $seo ? ($seo->robot_index==1 ? 'checked':'') :'checked' }}>
                                 Index
-                                @elseif ($seo->robot_index !== 1)
-                                <input  class="form-check-input" type="radio" name="robot_index" id="exampleRadios1" value="1">
-                                Index
-                                @endif
                                 <span class="circle">
                                     <span class="check"></span>
                                 </span>
                             </label>
-                        </div>
-                    </div>
-                  </div>
-                  <div class="col-md-12">
-                    <div class="form-group">
-                        <div class="form-check form-check-radio">
-                            <label class="form-check-label">
-                              @if($seo->robot_index == 0)
-                                <input class="form-check-input" type="radio" name="robot_index" id="exampleRadios1" value="0" checked >
-                               No-index
-                               @elseif ($seo->robot_index !== 0)
-                               <input class="form-check-input" type="radio" name="robot_index" id="exampleRadios1" value="0" >
-                               No-index
-                               @endif
-                                <span class="circle">
-                                    <span class="check"></span>
-                                </span>
+                            <label class="form-check-label row">
+                              <input  class="form-check-input" type="radio" name="robot_index" id="exampleRadios2" value="0" {{ $seo ? $seo->robot_index==0 ? 'checked':'':'' }}>
+                              No Index
+                              <span class="circle">
+                                  <span class="check"></span>
+                              </span>
                             </label>
+                          </div>
                         </div>
                     </div>
                   </div>
@@ -71,30 +57,25 @@
                     <label class="bmd-label-floating">Robots Follow</label>
                     <div class="form-group">
                         <div class="form-check form-check-radio">
-                            <label class="form-check-label">
-                                <input class="form-check-input" type="radio" name="robot_follow" id="exampleRadios1" value="1" checked>
-                                Follow
+                          <div class="ml-3">
+                            <label class="form-check-label row mb-2">
+                              <input  class="form-check-input" type="radio" name="robot_follow" id="robot_follow1" value="1" {{ $seo ? $seo->robot_follow==1 ? 'checked':'':'checked' }}>
+                              Follow
                                 <span class="circle">
                                     <span class="check"></span>
                                 </span>
                             </label>
-                        </div>
-                    </div>
-                  </div>
-                  <div class="col-md-12">
-                    <div class="form-group">
-                        <div class="form-check form-check-radio">
-                            <label class="form-check-label">
-                                <input class="form-check-input" type="radio" name="robot_follow" id="exampleRadios1" value="0" >
-                               No-follow
+                            <label class="form-check-label row">
+                              <input  class="form-check-input" type="radio" name="robot_follow" id="robot_follow2" value="0" {{ $seo ? $seo->robot_follow==0 ? 'checked':'':'' }}>
+                              No Follow
                                 <span class="circle">
                                     <span class="check"></span>
                                 </span>
                             </label>
+                          </div>
                         </div>
                     </div>
                   </div>
-                
               </div>
               <button type="submit" class="btn btn-primary pull-right">Save</button>
               <a class="btn btn-danger pull-left" href="{{ route('category.index') }}">Back</a>

@@ -5,6 +5,7 @@ namespace App\Http\Controllers\LandingPage;
 use App\Http\Controllers\Controller;
 use App\Models\Category;
 use App\Models\Product;
+use App\Models\Seo;
 use Illuminate\Http\Request;
 
 class LandingController extends Controller
@@ -25,7 +26,8 @@ class LandingController extends Controller
         $kerajinan = Product::with('category')->where('category_id', 1)->get();
         $sovenir = Product::with('category')->where('category_id', 6)->get();
         $categories = Category::get();
-        return view('landingpage.v_landingPage', compact('kerajinan','sovenir','categories'));
+        $seo = Seo::get();
+        return view('landingpage.v_landingPage', compact('kerajinan','sovenir','categories','seo'));
 
     }
 
